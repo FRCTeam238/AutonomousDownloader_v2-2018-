@@ -1,0 +1,82 @@
+{
+  "AutonomousPlays": [
+    {
+      "Name": "test play #1",
+      "L_LL": [
+        "0 Do Nothing"
+      ],
+      "C_LL": [
+        "5 Low Bar Score Runaway"
+      ],
+      "R_LL": [
+        "9 Cheval de Frise"
+      ],
+      "L_LR": [
+        "1 Mostly Everything"
+      ],
+      "C_LR": [
+        "6 Low Bar Double Tap"
+      ],
+      "R_LR": [
+        "10 Second Position CDF Score "
+      ],
+      "L_RR": [
+        "2 Moat"
+      ],
+      "C_RR": [
+        "7 Second Position Score"
+      ],
+      "R_RR": [
+        "11 Second Position CDF Score Runaway"
+      ],
+      "L_RL": [
+        "3 Low Bar Almost Score"
+      ],
+      "C_RL": [
+        "8 Second Position Score Runaway"
+      ],
+      "R_RL": [
+        "12 Fifth Position Score"
+      ]
+    },
+    {
+      "Name": "test play #2",
+      "L_LL": [
+        "ABC"
+      ],
+      "C_LL": [
+        "DEF"
+      ],
+      "R_LL": [
+        "GHI"
+      ],
+      "L_LR": [
+        "JKL"
+      ],
+      "C_LR": [
+        "MNO"
+      ],
+      "R_LR": [
+        "PQR"
+      ],
+      "L_RR": [
+        "STU"
+      ],
+      "C_RR": [
+        "VWX"
+      ],
+      "R_RR": [
+        "YZ1"
+      ],
+      "L_RL": [
+        "234"
+      ],
+      "C_RL": [
+        "567"
+      ],
+      "R_RL": [
+        ""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,605 @@
+{
+  "AutonomousModes": [
+    {
+      "Commands": [
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "0 - Finished"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "6.15",
+            "0.6",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "1 - GearOnly"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.6",
+            "0.6",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1500"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-2",
+            "0.6"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnToBoiler",
+          "Parameters": [
+            "64",
+            "0.45",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "9",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnToBoiler",
+          "Parameters": [
+            "15",
+            "0.45",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "0.1",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "2 - CenterGearAndHopperOne"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "6.15",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1500"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-2.5",
+            "0.6"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnToBoiler",
+          "Parameters": [
+            "64",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "6.75",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnAwayFromBoiler",
+          "Parameters": [
+            "30",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "6.75",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnToBoiler",
+          "Parameters": [
+            "15",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "0.1",
+            "1",
+            "0",
+            "0"
+          ]
+        }
+      ],
+      "Name": "3 - CenterGearAndHopperTwo"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "6.7",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnAwayFromBoiler",
+          "Parameters": [
+            "57",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.7",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "4 - BoilerGearAndStop"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnAwayFromBoiler",
+          "Parameters": [
+            "54",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.7",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1500"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-1.0",
+            "0.6"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnToBoiler",
+          "Parameters": [
+            "143",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.5",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "5 - BoilerGearAndHopperOne"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "6 - BoilerGearAndHopperTwo"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "6.2",
+            "0.75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnToBoiler",
+          "Parameters": [
+            "75",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "3.1",
+            "0.75",
+            "0",
+            "0"
+          ]
+        }
+      ],
+      "Name": "7 - HopperOne"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "10.9",
+            "0.5",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "TurnToBoiler",
+          "Parameters": [
+            "86",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "250"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "3.2",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "8 - HopperTwo"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "9 - ReturnGearAndStop"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "10 - ReturnGearAndRun"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "11 - ReturnGearAndHopperThree"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "12 - ReturnGearAndHopperFour"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "4.8",
+            "0.75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "0",
+            "0.5",
+            "0",
+            "11"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "90"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-2",
+            "1"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "64",
+            "0.5",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "45"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "10",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "5"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "18",
+            "0.5",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "13 - BLUEGearAndHopper"
+    }
+  ]
+}

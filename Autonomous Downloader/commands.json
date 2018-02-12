@@ -1,0 +1,66 @@
+[
+  {
+    "CommandName": "CollectorIn",
+    "ParameterNames": []
+  },
+  {
+    "CommandName": "CollectorOut",
+    "ParameterNames": []
+  },
+  {
+    "CommandName": "DriveForward",
+    "ParameterNames": [
+      "Target",
+      "Speed",
+      "Roll",
+      "Ultrasonic Distance"
+    ]
+  },
+  {
+    "CommandName": "CollectorDeploy",
+    "ParameterNames": [
+      "Target"
+    ]
+  },
+  {
+    "CommandName": "Delay",
+    "ParameterNames": [
+      "Target"
+    ]
+  },
+  {
+    "CommandName": "DriveBackwards",
+    "ParameterNames": [
+      "Target",
+      "Speed",
+      "Roll",
+      "Ultrasonic Distance"
+    ]
+  },
+  {
+    "CommandName": "TurnLeft",
+    "ParameterNames": [
+      "Target",
+      "Speed",
+      "Other"
+    ]
+  },
+  {
+    "CommandName": "TurnRight",
+    "ParameterNames": [
+      "Target",
+      "Speed",
+      "Other"
+    ]
+  },
+  {
+    "CommandName": "Realign",
+    "ParameterNames": [
+      "Speed"
+    ]
+  },
+  {
+    "CommandName": "Finished",
+    "ParameterNames": []
+  }
+]

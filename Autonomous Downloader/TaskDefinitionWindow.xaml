@@ -1,0 +1,69 @@
+﻿<Window x:Class="Autonomous_Downloader.TaskDefinitionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Task Definitions" Height="716.869" Width="729.78"
+        xmlns:controls="clr-namespace:Autonomous_Downloader" Loaded="Window_Loaded">
+    <Grid>
+        <Grid Height="43" VerticalAlignment="Top">
+            <Button x:Name="LoadButton" Content="_Load" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="LoadButton_Click"/>
+            <Button x:Name="QuitButton" Content="C_lose" HorizontalAlignment="Right" Margin="0,10,16,0" VerticalAlignment="Top" Width="75" Click="QuitButton_Click"/>
+            <Button x:Name="SaveButton" Content="_Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="90,10,0,0" RenderTransformOrigin="1.307,0.55" Click="SaveButton_Click"/>
+            <Button x:Name="SaveAsButton" Content="S_ave As" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="170,10,0,0" RenderTransformOrigin="1.307,0.55" Click="SaveAsButton_Click"/>
+            <Button x:Name="DownloadBtn" Content="_Download" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="75" Click="DownloadBtn_Click"/>
+        </Grid>
+        <Grid Margin="0,48,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+            
+            <controls:ProgramPanel x:Name="ProgramPnl" Grid.Column="2" Width="Auto" />
+            <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Top">
+                <Grid Height="30">
+                    <Button x:Name="AddBtn" Height="24" Width="24" Margin="10,0,116,0" Click="AddBtn_Click">
+                        <StackPanel>
+                            <Image Source="images/add.png" />
+                            <TextBlock Text="Blabla" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="RemoveBtn" Height="24" Width="24" Margin="39,0,87,0" Click="RemoveBtn_Click">
+                        <StackPanel>
+                            <Image Source="images/remove.png" />
+                            <TextBlock Text="Blabla" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="DownBtn" Height="24" Width="24" Margin="116,0,10,0" Click="DownBtn_Click">
+                        <StackPanel>
+                            <Image Source="images/arrow-down.png" />
+                            <TextBlock Text="Blabla" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="UpBtn" Height="24" Width="24" Margin="87,0,39,0" Click="UpBtn_Click">
+                        <StackPanel>
+                            <Image Source="images/arrow-up.png" />
+                            <TextBlock Text="Blabla" />
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </Grid>
+            <ListBox x:Name="ProgramModeLB" Margin="10,35,5,10" SelectionChanged="ProgramModeLB_SelectionChanged">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock x:Name="ProgramModeTB" Text="{Binding Name}"  Tag="{Binding ElementName=ProgramModeEntry}" MouseDown="ProgramModeTB_MouseDown" />
+                            <TextBox x:Name="ProgramModeEntry" Visibility="Collapsed" Tag="{Binding ElementName=ProgramModeTB}" TextChanged="ProgramModeEntry_TextChanged" KeyDown="ProgramModeEntry_KeyDown" PreviewLostKeyboardFocus="ProgramModeEntry_PreviewLostKeyboardFocus" BorderThickness="0,1,1,1" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Window>

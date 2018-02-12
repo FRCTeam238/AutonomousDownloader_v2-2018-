@@ -1,0 +1,1642 @@
+{
+  "AutonomousModes": [
+    {
+      "Commands": [
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "0 Do Nothing"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "15",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "1 Mostly Everything"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "15",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "2 Moat"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "40"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "14.5",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "10",
+            ".625",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.3",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "46.5",
+            ".625",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "3 Low Bar Almost Score"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "40"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "14.5",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "10",
+            ".625",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.3",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "46.5",
+            ".625",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "8.8",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "4 Low Bar Score"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "40"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "14",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "10",
+            ".625",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.3",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "49.5",
+            ".625",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "9.4",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-8.8",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "45",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-5",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "5 Low Bar Score Runaway"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "40"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "12.5",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "10"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-9",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "6 Low Bar Double Tap"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "24.5",
+            ".75",
+            "0",
+            "48"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "56",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "35"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "4",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "7 Second Position Score"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "23.5",
+            ".75",
+            "0",
+            "48"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "56",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "35"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "4",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-4",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "53",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-12",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "8 Second Position Score Runaway"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.94",
+            ".5",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "15"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "10"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.5",
+            ".5",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "7",
+            ".625",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "9 Cheval de Frise"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.94",
+            ".5",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "15"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "10"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.5",
+            ".625",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "17",
+            ".75",
+            "0",
+            "48"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "58",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.5",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "10 Second Position CDF Score "
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.94",
+            ".5",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "15"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "10"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.5",
+            ".625",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "17",
+            ".75",
+            "0",
+            "48"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "58",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.5",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-5.5",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "53",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "11 Second Position CDF Score Runaway"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "24",
+            "1",
+            "0",
+            "48"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "56",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "25"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "12 Fifth Position Score"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "24",
+            ".75",
+            "0",
+            "36"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "56",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "25"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-5",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "56",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "10",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "13 Fifth Position Score Runaway"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.94",
+            ".5",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "15"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "10"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.5",
+            ".625",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "17",
+            ".75",
+            "0",
+            "36"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "58",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.5",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "14 Fifth Position Score CDF Score"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.94",
+            ".5",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "15"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "10"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.5",
+            ".625",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "17",
+            ".75",
+            "0",
+            "36"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "58",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5.5",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-5.5",
+            ".9",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "53",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "15 Fifth Position Score CDF Runaway"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "2",
+            ".5",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "14",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "16 Portcullis"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "14.5",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "30"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveBackwards",
+          "Parameters": [
+            "-11",
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "180",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "17 Double Tap"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "15",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "45",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "90",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "18 Fourth Position Score"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "15",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "45",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "90",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "19 Third Position Score"
+    },
+    {
+      "Commands": [
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.94",
+            "1.94",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "1"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "15"
+          ]
+        },
+        {
+          "Name": "Delay",
+          "Parameters": [
+            "10"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "1.5",
+            ".625",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "2",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnRight",
+          "Parameters": [
+            "45",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "3",
+            ".75",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "45",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "14",
+            ".75",
+            "0",
+            "36"
+          ]
+        },
+        {
+          "Name": "TurnLeft",
+          "Parameters": [
+            "90",
+            ".75",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorDeploy",
+          "Parameters": [
+            "0"
+          ]
+        },
+        {
+          "Name": "DriveForward",
+          "Parameters": [
+            "5",
+            ".625",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "Name": "CollectorOut",
+          "Parameters": []
+        },
+        {
+          "Name": "Finished",
+          "Parameters": []
+        }
+      ],
+      "Name": "20 Fourth Position CDF Score"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="Autonomous_Downloader.ProgramPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="363" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="10,10,10,5">
+                <Grid VerticalAlignment="Top">
+                    <Label Content="Route" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
+                    <Label x:Name="ProgramNameLbl" Content="None" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,0,0,0" Width="91"/>
+                </Grid>
+                <Grid Height="30" Margin="0,31,0,103" VerticalAlignment="Top">
+                    <Button x:Name="DownBtn" Margin="0,0,39,0" HorizontalAlignment="Right" Width="24" Height="24" Click="DownBtn_Click">
+                        <StackPanel HorizontalAlignment="Right">
+                            <Image Source="images/arrow-down.png" />
+                            <TextBlock Text="Blabla" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="UpBtn" Height="24" Width="24" Margin="0,0,10,0" HorizontalAlignment="Right" Click="UpBtn_Click">
+                        <StackPanel HorizontalAlignment="Right">
+                            <Image Source="images/arrow-up.png"/>
+                            <TextBlock Text="Blabla" />
+                        </StackPanel>
+                    </Button>
+                </Grid>
+                
+                <ListBox x:Name="ProgramCommandsLB" SelectionChanged="ProgramCommandsLB_SelectionChanged" Margin="0,66,0,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding NameExtended}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
+            <ListBox  x:Name="ProgramParametersLB" Margin="10" Grid.Row="2" Background="#FFAAAAAA">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock x:Name="ParameterNameTB" Text="{Binding Name}" />
+                            <TextBlock x:Name="ParameterTB" Text="{Binding Value}"  Tag="{Binding ElementName=ParameterEntry}" MouseDown="ParameterTB_MouseDown" Background="White" />
+                            <TextBox Name="ParameterEntry" Visibility="Collapsed" Tag="{Binding ElementName=ParameterTB}" KeyDown="ParameterEntry_KeyDown" PreviewLostKeyboardFocus="ParameterEntry_PreviewLostKeyboardFocus"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+        <Grid Grid.Column="2">
+            <ListBox x:Name="CommandTemplateLB" Margin="35,38,10,10" MouseDoubleClick="CommandTemplateLB_MouseDoubleClick">
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding CommandName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Grid.Column="2" HorizontalAlignment="Left" Width="30">
+                <Button x:Name="AddBtn" HorizontalAlignment="Left" Width="24" Height="24" Click="AddBtn_Click" Margin="6,157,0,0" VerticalAlignment="Top">
+                    <StackPanel>
+                        <Image Source="images/insert.png" />
+                        <TextBlock Text="Blabla" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="RemoveBtn" HorizontalAlignment="Left" Width="24" Height="24" Margin="6,186,0,0" Click="RemoveBtn_Click" VerticalAlignment="Top">
+                    <StackPanel>
+                        <Image Source="images/remove.png" />
+                        <TextBlock Text="Blabla" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+            <Label x:Name="CommandsX" Content="Commands" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="35,7,0,0" Width="115"/>
+        </Grid>
+
+    </Grid>
+</UserControl>
