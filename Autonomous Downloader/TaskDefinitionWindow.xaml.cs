@@ -179,6 +179,7 @@ namespace Autonomous_Downloader
                 else
                 {
                     SaveFile(SaveFilename);
+                    MessageBox.Show($"Saved to {SaveFilename}");
                 }
             }
         }
@@ -204,6 +205,7 @@ namespace Autonomous_Downloader
             if (!String.IsNullOrEmpty(dlg.FileName))
             {
                 SaveFile(dlg.FileName);
+                MessageBox.Show($"Saved to {SaveFilename}");
             }
         }
 
@@ -559,6 +561,22 @@ namespace Autonomous_Downloader
             DownloadWindow dlg = new DownloadWindow();
             dlg.Owner = this;
             dlg.Show();
+        }
+
+        private void CloneBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //get the old one
+            //make a copy into a new variable
+            //put it in the list
+
+            if (ProgramModeLB.SelectedIndex >= 0)
+            {
+                var toBeCloned = mProgramModes.AutonomousModes[ProgramModeLB.SelectedIndex];
+                var cloned = Utility.Clone(toBeCloned);
+                cloned.Name = cloned.Name + " Cloned";
+                mProgramModes.AutonomousModes.Insert(ProgramModeLB.SelectedIndex + 1, cloned);
+            }
+
         }
     }
 }

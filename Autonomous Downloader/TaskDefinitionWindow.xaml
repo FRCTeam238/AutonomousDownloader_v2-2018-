@@ -21,31 +21,32 @@
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
             
             <controls:ProgramPanel x:Name="ProgramPnl" Grid.Column="2" Width="Auto" />
-            <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Margin="10,0,0,0">
                 <Grid Height="30">
-                    <Button x:Name="AddBtn" Height="24" Width="24" Margin="10,0,116,0" Click="AddBtn_Click">
-                        <StackPanel>
-                            <Image Source="images/add.png" />
-                            <TextBlock Text="Blabla" />
-                        </StackPanel>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="AddBtn" Height="24" Width="24" Margin="1" Grid.Row="0" Grid.Column="0" Click="AddBtn_Click">
+                        <Image Source="images/add.png" />
                     </Button>
-                    <Button x:Name="RemoveBtn" Height="24" Width="24" Margin="39,0,87,0" Click="RemoveBtn_Click">
-                        <StackPanel>
-                            <Image Source="images/remove.png" />
-                            <TextBlock Text="Blabla" />
-                        </StackPanel>
+                    <Button x:Name="RemoveBtn" Height="24" Width="24" Margin="1" Grid.Row="0" Grid.Column="1" Click="RemoveBtn_Click">
+                        <Image Source="images/remove.png" />
                     </Button>
-                    <Button x:Name="DownBtn" Height="24" Width="24" Margin="116,0,10,0" Click="DownBtn_Click">
-                        <StackPanel>
-                            <Image Source="images/arrow-down.png" />
-                            <TextBlock Text="Blabla" />
-                        </StackPanel>
+                    <Button x:Name="CloneBtn" Height="24" Width="24" Margin="1" Grid.Row="0" Grid.Column="2" Click="CloneBtn_Click">
+                        <Image Source="images/clone.png" />
                     </Button>
-                    <Button x:Name="UpBtn" Height="24" Width="24" Margin="87,0,39,0" Click="UpBtn_Click">
-                        <StackPanel>
-                            <Image Source="images/arrow-up.png" />
-                            <TextBlock Text="Blabla" />
-                        </StackPanel>
+                    <Button x:Name="DownBtn" Height="24" Width="24" Margin="1" Grid.Row="0" Grid.Column="3" Click="DownBtn_Click">
+                        <Image Source="images/arrow-down.png" />
+                    </Button>
+                    <Button x:Name="UpBtn" Height="24" Width="24" Margin="1" Grid.Row="0" Grid.Column="4" Click="UpBtn_Click">
+                        <Image Source="images/arrow-up.png" />
                     </Button>
                 </Grid>
             </Grid>

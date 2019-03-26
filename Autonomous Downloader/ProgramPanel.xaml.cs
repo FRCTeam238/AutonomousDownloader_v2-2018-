@@ -317,11 +317,11 @@ namespace Autonomous_Downloader
                 TextBox box = (TextBox)sender;
                 e.Handled = true;
 
-                TextBlock block = (TextBlock)box.Tag;
-                box.Visibility = System.Windows.Visibility.Collapsed;
-                block.Visibility = System.Windows.Visibility.Visible;
+                //TextBlock block = (TextBlock)box.Tag;
+                //box.Visibility = System.Windows.Visibility.Collapsed;
+                //block.Visibility = System.Windows.Visibility.Visible;
 
-                block.Text = box.Text;
+                //block.Text = box.Text;
 
                 int selectedIndex = ProgramParametersLB.SelectedIndex;
 
@@ -335,6 +335,15 @@ namespace Autonomous_Downloader
                     /* //TODO do something with the error */
                 }
                 RefreshCommandList();
+                var moveDown = new TraversalRequest(FocusNavigationDirection.Down);
+                box.MoveFocus(moveDown);
+               // var stack = (StackPanel)box.Parent;
+               // var item = (ListBoxItem)stack.Parent;
+                //var listbox = (ListBox)item.Parent;
+                // ((TextBox)((ListBoxItem)listbox.Items[listbox.SelectedIndex + 1]).FindName("ParameterEntry")).Focus();
+                //((TextBox)((ListBoxItem)listbox.Items[listbox.SelectedIndex + 1]).FindName("ParameterEntry")).Focus();
+                //var l = (ListBox)((ListBoxItem)().Parent);
+
             }
         }
 
