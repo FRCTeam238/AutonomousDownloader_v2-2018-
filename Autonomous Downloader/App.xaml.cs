@@ -13,5 +13,13 @@ namespace Autonomous_Downloader
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            string startupUri = ConfigurationManager.AppSettings["startupUri"];
+            if (!string.IsNullOrEmpty(startupUri)) {
+                StartupUri = new Uri(startupUri, UriKind.RelativeOrAbsolute);
+            }
+            base.OnStartup(e);
+        }
     }
 }

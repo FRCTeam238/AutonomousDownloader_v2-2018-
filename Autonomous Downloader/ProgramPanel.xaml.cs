@@ -1,21 +1,10 @@
 ﻿using Autonomous_Downloader.Autonomous_x;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Autonomous_Downloader
 {
@@ -116,8 +105,11 @@ namespace Autonomous_Downloader
             }
             catch(Exception ex)
             {
-                String msg = String.Format("Unable to load file {0}\n", filepath);
-                MessageBox.Show(msg, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //don't show this error when xaml editor is trying to render or debugging
+                if (!DesignerProperties.GetIsInDesignMode(this)) {
+                    String msg = String.Format("Unable to load file {0}\n", filepath);
+                    MessageBox.Show(msg, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+               }
             }
 
             return retval;
@@ -312,22 +304,15 @@ namespace Autonomous_Downloader
         /// 
         private void ParameterEntry_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
+            if (e.Key == Key.Return || e.Key == Key.Tab)
             {
                 TextBox box = (TextBox)sender;
                 e.Handled = true;
-
-                //TextBlock block = (TextBlock)box.Tag;
-                //box.Visibility = System.Windows.Visibility.Collapsed;
-                //block.Visibility = System.Windows.Visibility.Visible;
-
-                //block.Text = box.Text;
-
+                
                 int selectedIndex = ProgramParametersLB.SelectedIndex;
 
                 try
                 {
-                    //C Parameters[selectedIndex] = Convert.ToInt32(box.Text);
                     Parameters[selectedIndex].Value = box.Text;
                 }
                 catch (Exception /*ex*/)
@@ -336,39 +321,16 @@ namespace Autonomous_Downloader
                 }
                 RefreshCommandList();
                 var moveDown = new TraversalRequest(FocusNavigationDirection.Down);
-                box.MoveFocus(moveDown);
-               // var stack = (StackPanel)box.Parent;
-               // var item = (ListBoxItem)stack.Parent;
-                //var listbox = (ListBox)item.Parent;
-                // ((TextBox)((ListBoxItem)listbox.Items[listbox.SelectedIndex + 1]).FindName("ParameterEntry")).Focus();
-                //((TextBox)((ListBoxItem)listbox.Items[listbox.SelectedIndex + 1]).FindName("ParameterEntry")).Focus();
-                //var l = (ListBox)((ListBoxItem)().Parent);
-
-            }
-        }
-
-        /// <summary>
-        /// A click has been issued in a parameter display row.
-        /// </summary>
-        /// 
-        /// This function will switch the parameter display to an editable
-        /// input. The field
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ParameterTB_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ClickCount == 2)
-            {
-                TextBlock block = (TextBlock)sender;
-                Panel owner = (Panel)block.Parent;
-                TextBox box = (TextBox)block.Tag;
-
-                block.Visibility = System.Windows.Visibility.Collapsed;
-                box.Visibility = System.Windows.Visibility.Visible;
-                box.Text = block.Text;
-                box.CaretIndex = box.Text.Length;
-                Keyboard.Focus(box);
+                //if it couldn't focus on the next element, we're at the end
+                //seems like setting "Cycle" on the tab mode would solve this, but I'm doing it wrong or something in the xaml
+                //hacky way of getting the first list box item, finding the parameter textbox and setting focus
+                //using wpf dark magic
+                if (!box.MoveFocus(moveDown)) {
+                    ListBoxItem firstItem = ProgramParametersLB.ItemContainerGenerator.ContainerFromIndex(0) as ListBoxItem;
+                    //FindChildControlByName is an extension method found in Utiity.cs class
+                    TextBox firstParameterEntry = firstItem.FindChildControlByName<TextBox>("ParameterEntry");
+                    firstParameterEntry.Focus();
+                }
             }
         }
 
@@ -437,8 +399,9 @@ namespace Autonomous_Downloader
                 {
                     /* //TODO do something with the error */
                 }
-                RefreshCommandList();
+                //RefreshCommandList();
             }
+            RefreshCommandList();
         }
 
         /// <summary>
@@ -448,6 +411,17 @@ namespace Autonomous_Downloader
         private void RefreshCommandList()
         {
             ProgramCommandsLB.Items.Refresh();
+        }
+        /// <summary>
+        /// Sets the carat to the end of the textbox on focus
+        /// Why I have to do this manually is beyond me...
+        /// Probably some automatic way / property that can be set, but I don't really care enough to look right now.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ParameterEntry_GotFocus(object sender, RoutedEventArgs e) {
+            TextBox tb = (TextBox)sender;
+            tb.CaretIndex = tb.Text.Length;
         }
     }
 }

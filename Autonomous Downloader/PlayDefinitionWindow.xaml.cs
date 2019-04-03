@@ -1,19 +1,11 @@
 ﻿using Autonomous_Downloader.Autonomous_x;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Autonomous_Downloader
 {
@@ -600,8 +592,11 @@ namespace Autonomous_Downloader
             }
             catch (Exception ex)
             {
-                String msg = String.Format("Unable to load file {0}\n", filepath);
-                MessageBox.Show(msg, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //don't show this error when xaml editor is trying to render or debugging
+                if (!DesignerProperties.GetIsInDesignMode(this)){
+                    String msg = String.Format("Unable to load file {0}\n", filepath);
+                    MessageBox.Show(msg, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
             return retval;

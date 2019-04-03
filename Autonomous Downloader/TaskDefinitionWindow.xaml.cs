@@ -31,7 +31,7 @@ namespace Autonomous_Downloader
         /// The displayed program version
         /// </summary>
         /// 
-        public const String ProgramVersion = "v2 (2/10/2018)";
+        public const String ProgramVersion = "2019 (4/4/2019)";
 
         /// <summary>
         /// The main list of routes.
