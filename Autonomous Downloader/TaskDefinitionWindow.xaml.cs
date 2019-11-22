@@ -31,7 +31,7 @@ namespace Autonomous_Downloader
         /// The displayed program version
         /// </summary>
         /// 
-        public const String ProgramVersion = "2019 (4/4/2019)";
+        public const String ProgramVersion = "2020 Beta";
 
         /// <summary>
         /// The main list of routes.
@@ -126,7 +126,7 @@ namespace Autonomous_Downloader
         /// 
         private void SetWindowTitle(String filename)
         {
-            String title = String.Format("{0}  Autonomous Downloader {1}", filename, ProgramVersion);
+            String title = String.Format("{0}  Autonomous Designer {1}", filename, ProgramVersion);
             Title = title;
         }
 
@@ -576,6 +576,11 @@ namespace Autonomous_Downloader
                 cloned.Name = cloned.Name + " Cloned";
                 mProgramModes.AutonomousModes.Insert(ProgramModeLB.SelectedIndex + 1, cloned);
             }
+
+        }
+
+        private void ProgramPnl_Loaded(object sender, RoutedEventArgs e)
+        {
 
         }
     }

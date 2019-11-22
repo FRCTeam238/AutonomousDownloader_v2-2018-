@@ -21,8 +21,8 @@
 
             <Grid Margin="10,10,10,5">
                 <Grid VerticalAlignment="Top">
-                    <Label Content="Route" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
-                    <Label x:Name="ProgramNameLbl" Content="None" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,0,0,0" Width="91"/>
+                    <Label Content="Route" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFEEEE00" FontFamily="Verdana"/>
+                    <Label x:Name="ProgramNameLbl" Content="None" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,0,0,0" Width="91" Foreground="#FFEEEE00" FontFamily="Verdana"/>
                 </Grid>
                 <Grid Height="30" Margin="0,31,0,103" VerticalAlignment="Top">
                     <Button x:Name="DownBtn" Margin="0,0,39,0" HorizontalAlignment="Right" Width="24" Height="24" Click="DownBtn_Click">
@@ -38,8 +38,8 @@
                         </StackPanel>
                     </Button>
                 </Grid>
-                
-                <ListBox x:Name="ProgramCommandsLB" SelectionChanged="ProgramCommandsLB_SelectionChanged" Margin="0,66,0,0">
+
+                <ListBox x:Name="ProgramCommandsLB" SelectionChanged="ProgramCommandsLB_SelectionChanged" Margin="0,66,0,0" Background="#FFFFE766">
                     <ListBox.ItemTemplate>
                         <DataTemplate >
                             <StackPanel Orientation="Horizontal">
@@ -49,8 +49,8 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </Grid>
-            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch"/>
-            <ListBox  x:Name="ProgramParametersLB" Margin="10" Grid.Row="2" Background="#FFAAAAAA" KeyboardNavigation.TabNavigation="Cycle" >
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Background="#FF36372B"/>
+            <ListBox  x:Name="ProgramParametersLB" Margin="10" Grid.Row="2" Background="#FFFFE766" KeyboardNavigation.TabNavigation="Cycle" >
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
@@ -69,13 +69,13 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="#FF36372B"/>
         <Grid Grid.Column="2">
-            <ListBox x:Name="CommandTemplateLB" Margin="35,38,10,10" MouseDoubleClick="CommandTemplateLB_MouseDoubleClick">
+            <ListBox x:Name="CommandTemplateLB" Margin="35,38,10,10" MouseDoubleClick="CommandTemplateLB_MouseDoubleClick" Background="#FFFFE766">
                 <ListBox.ItemTemplate>
                     <DataTemplate >
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding CommandName}"/>
+                            <TextBlock Text="{Binding CommandName}" Foreground="MidnightBlue" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -94,7 +94,7 @@
                     </StackPanel>
                 </Button>
             </Grid>
-            <Label x:Name="CommandsX" Content="Commands" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="35,7,0,0" Width="115"/>
+            <Label x:Name="CommandsX" Content="Commands" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="35,7,0,0" Width="115" Background="{x:Null}" Foreground="#FFEEEE00" FontFamily="Verdana"/>
         </Grid>
 
     </Grid>
