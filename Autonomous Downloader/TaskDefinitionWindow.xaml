@@ -40,7 +40,7 @@
 
             <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="#FF36372B"/>
 
-            <controls:ProgramPanel x:Name="ProgramPnl" Grid.Column="2" Width="Auto" Foreground="{x:Null}" Loaded="ProgramPnl_Loaded" >
+            <controls:ProgramPanel x:Name="ProgramPnl" Grid.Column="2" Width="Auto" Foreground="{x:Null}">
                 <controls:ProgramPanel.Background>
                     <ImageBrush ImageSource="https://i.ytimg.com/vi/Ce8rTeUk65k/maxresdefault.jpg" Stretch="UniformToFill">
                         <ImageBrush.RelativeTransform>

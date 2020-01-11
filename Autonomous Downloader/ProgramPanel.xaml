@@ -39,7 +39,7 @@
                     </Button>
                 </Grid>
 
-                <ListBox x:Name="ProgramCommandsLB" SelectionChanged="ProgramCommandsLB_SelectionChanged" Margin="0,66,0,0" Background="#FFFFE766">
+                <ListBox x:Name="ProgramCommandsLB" SelectionChanged="ProgramCommandsLB_SelectionChanged" Margin="0,66,0,0" Background="#FFFFE766" KeyDown="ParameterEntry_KeyDown">
                     <ListBox.ItemTemplate>
                         <DataTemplate >
                             <StackPanel Orientation="Horizontal">
@@ -50,7 +50,7 @@
                 </ListBox>
             </Grid>
             <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Background="#FF36372B"/>
-            <ListBox  x:Name="ProgramParametersLB" Margin="10" Grid.Row="2" Background="#FFFFE766" KeyboardNavigation.TabNavigation="Cycle" >
+            <ListBox  x:Name="ProgramParametersLB" Margin="10" Grid.Row="2" Background="#FFFFE766" KeyboardNavigation.TabNavigation="Cycle">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
@@ -61,7 +61,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock x:Name="ParameterNameTB" Text="{Binding Name}" />
+                            <TextBlock x:Name="ParameterNameTB" Text="{Binding Name}"  />
                             <TextBlock x:Name="ParameterTB" Visibility="Collapsed" Text="{Binding Value}"  Tag="{Binding ElementName=ParameterEntry}" Background="Green" />
                             <TextBox Name="ParameterEntry" Visibility="Visible" Text="{Binding Value}" Tag="{Binding ElementName=ParameterTB}" PreviewLostKeyboardFocus="ParameterEntry_PreviewLostKeyboardFocus" KeyDown="ParameterEntry_KeyDown" GotFocus="ParameterEntry_GotFocus" />
                         </StackPanel>

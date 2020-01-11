@@ -578,10 +578,5 @@ namespace Autonomous_Downloader
             }
 
         }
-
-        private void ProgramPnl_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

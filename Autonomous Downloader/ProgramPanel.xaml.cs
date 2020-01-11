@@ -332,7 +332,45 @@ namespace Autonomous_Downloader
                     firstParameterEntry.Focus();
                 }
             }
-        }
+            
+
+            if (e.Key == Key.U)//(Keyboard.IsKeyDown(Key.LeftShift) && e.Key == Key.Up) 
+			{
+				if(ProgramCommandsLB.SelectedIndex > 0)
+                {
+                    int index = ProgramCommandsLB.SelectedIndex;
+                    Command item = Commands[index];
+                    Commands.RemoveAt(index);
+                    Commands.Insert(index - 1, item);
+                    ProgramCommandsLB.SelectedIndex = index - 1;
+                }
+            }
+
+			if(e.Key == Key.L)//(Keyboard.IsKeyDown(Key.LeftShift) && e.Key == Key.Up) 
+			{
+				if(ProgramCommandsLB.SelectedIndex < ProgramCommandsLB.Items.Count - 1) {
+					int index = ProgramCommandsLB.SelectedIndex;
+					Command item = Commands[index];
+					Commands.RemoveAt(index);
+					Commands.Insert(index + 1, item);
+					ProgramCommandsLB.SelectedIndex = index + 1;
+				}
+			}
+
+			if(e.Key == Key.Delete || e.Key == Key.Back)
+			{
+				if(ProgramCommandsLB.SelectedIndex >= 0) {
+					int index = ProgramCommandsLB.SelectedIndex;
+					Commands.RemoveAt(index);
+					if(index < ProgramCommandsLB.Items.Count) {
+						ProgramCommandsLB.SelectedIndex = index;
+					}
+					else if(ProgramCommandsLB.Items.Count > 0) {
+						ProgramCommandsLB.SelectedIndex = ProgramCommandsLB.Items.Count - 1;
+					}
+				}
+			}
+		}
 
         /// <summary>
         /// Add a new command to the current route.
