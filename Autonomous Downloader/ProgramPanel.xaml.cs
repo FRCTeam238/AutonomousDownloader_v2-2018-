@@ -241,6 +241,7 @@ namespace Autonomous_Downloader
                         ProgramCommandsLB.SelectedIndex = ProgramCommandsLB.Items.Count - 1;
                     }   
                 }
+                TaskDefinitionWindow.dirty = true;
             }
         }
 
@@ -265,6 +266,7 @@ namespace Autonomous_Downloader
                 {
                     ProgramCommandsLB.SelectedIndex = ProgramCommandsLB.Items.Count - 1;
                 }
+                TaskDefinitionWindow.dirty = true;
             }
         }
 
@@ -284,6 +286,7 @@ namespace Autonomous_Downloader
                 Commands.RemoveAt(index);
                 Commands.Insert(index + 1, item);
                 ProgramCommandsLB.SelectedIndex = index + 1;
+                TaskDefinitionWindow.dirty = true;
             }
         }
 
@@ -305,6 +308,7 @@ namespace Autonomous_Downloader
                 Commands.RemoveAt(index);
                 Commands.Insert(index - 1, item);
                 ProgramCommandsLB.SelectedIndex = index - 1;
+                TaskDefinitionWindow.dirty = true;
             }
         }
 
@@ -421,6 +425,7 @@ namespace Autonomous_Downloader
                         ProgramCommandsLB.SelectedIndex = ProgramCommandsLB.Items.Count - 1;
                     }   
                 }
+                TaskDefinitionWindow.dirty = true;
             }
         }
 
@@ -469,7 +474,7 @@ namespace Autonomous_Downloader
         }
 
         /// <summary>
-        /// Reload the commands list to ensure that it is up to date.
+        /// Reload the commands template list to ensure that it is up to date.
         /// </summary>
         /// 
         private void RefreshCommandTemplateList()

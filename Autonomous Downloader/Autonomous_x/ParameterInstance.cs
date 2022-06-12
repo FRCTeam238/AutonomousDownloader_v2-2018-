@@ -10,11 +10,16 @@ namespace Autonomous_Downloader.Autonomous_x
     {
         private CommandTemplate mTemplate;
         private int mParameterIndex;
+        private string value;
 
         public String Value
         {
-            get;
-            set;
+            get => value;
+            set
+            {
+                this.value = value;
+                TaskDefinitionWindow.dirty = true;
+            }
         }
 
         public String Name

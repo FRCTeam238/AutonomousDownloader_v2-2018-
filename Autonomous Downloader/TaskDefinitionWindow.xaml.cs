@@ -38,6 +38,8 @@ namespace Autonomous_Downloader
 
         public const String commandDirectory = "\\src\\main\\java\\frc\\robot\\commands";
 
+        public static bool dirty = false;
+
         /// <summary>
         /// The main list of routes.
         /// </summary>
@@ -183,6 +185,7 @@ namespace Autonomous_Downloader
                     MessageBox.Show($"Saved to {SaveFilename}");
                 }
             }
+            dirty = false;
         }
 
         /// <summary>
@@ -328,6 +331,19 @@ namespace Autonomous_Downloader
         /// 
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
+            if(dirty)
+            {
+                String msg = "Are you sure you want to quit without saving?";
+                MessageBoxResult result = MessageBox.Show(msg, "Quit?", MessageBoxButton.YesNo);
+                if (result.Equals(MessageBoxResult.Yes))
+                {
+                    Close();
+                } else
+                {
+                    return;
+                }
+            }
+
             Close();
         }
 
@@ -373,6 +389,7 @@ namespace Autonomous_Downloader
                 mProgramModes.AutonomousModes.Insert(index + 1, item);
                 ProgramModeLB.SelectedIndex = index + 1;
             }
+            dirty = true;
         }
 
         /// <summary>
@@ -397,6 +414,7 @@ namespace Autonomous_Downloader
                 mProgramModes.AutonomousModes.Insert(index - 1, item);
                 ProgramModeLB.SelectedIndex = index - 1;
             }
+            dirty = true;
         }
 
         /// <summary>
@@ -423,6 +441,7 @@ namespace Autonomous_Downloader
             {
                 mProgramModes.AutonomousModes.Add(mode);
             }
+            dirty = true;
         }
 
         /// <summary>
@@ -441,6 +460,7 @@ namespace Autonomous_Downloader
             {
                 mProgramModes.AutonomousModes.RemoveAt(ProgramModeLB.SelectedIndex);
             }
+            dirty = true;
         }
 
         /// <summary>
@@ -465,6 +485,7 @@ namespace Autonomous_Downloader
                 editBox.Visibility = System.Windows.Visibility.Visible;
                 editBox.Text = SelectedProgram.Name;
             }
+            dirty = true;
         }
 
         /// <summary>
@@ -488,6 +509,7 @@ namespace Autonomous_Downloader
                 mode.Name = editBox.Text;
                 ProgramPnl.ProgramNameLabel = mode.Name;
             }
+            dirty = true;
         }
 
         /// <summary>
@@ -529,6 +551,7 @@ namespace Autonomous_Downloader
                 }
 #endif
             }
+            dirty = true;
         }
 
         /// <summary>
@@ -553,6 +576,8 @@ namespace Autonomous_Downloader
             block.Visibility = System.Windows.Visibility.Visible;
 
             block.Text = box.Text;
+
+            dirty = true;
         }
 
         /// <summary>
@@ -607,7 +632,7 @@ namespace Autonomous_Downloader
                 cloned.Name = cloned.Name + " Cloned";
                 mProgramModes.AutonomousModes.Insert(ProgramModeLB.SelectedIndex + 1, cloned);
             }
-
+            dirty = true;
         }
     }
 }
