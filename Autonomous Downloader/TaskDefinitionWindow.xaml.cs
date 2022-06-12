@@ -15,6 +15,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Autonomous_Downloader
 {
@@ -32,6 +35,8 @@ namespace Autonomous_Downloader
         /// </summary>
         /// 
         public const String ProgramVersion = "2020 Beta";
+
+        public const String commandDirectory = "\\src\\main\\java\\frc\\robot\\commands";
 
         /// <summary>
         /// The main list of routes.
@@ -142,16 +147,12 @@ namespace Autonomous_Downloader
         /// 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-
-            dlg.Filter = "Autonomous JSON File(*.txt)|*.txt|Autonomous JSON File (*.json)|*.json|All(*.*)|*.*";
-            dlg.DefaultExt = ".txt";
-            dlg.Title = "Open an Autonomous File";
-            dlg.ShowDialog();
-
-            if (!String.IsNullOrEmpty(dlg.FileName))
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.InitialDirectory = "C:\\Users";
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                LoadFile(dlg.FileName);
+                LoadFolder(dialog.FileName);
             }
         }
 
@@ -207,6 +208,36 @@ namespace Autonomous_Downloader
                 SaveFile(dlg.FileName);
                 MessageBox.Show($"Saved to {SaveFilename}");
             }
+        }
+
+        private bool LoadFolder(String folderName)
+        {
+            bool retval = false;
+            string paramsPattern = @"@AutonomousModeAnnotation\(parameterNames = {(.*)}\)";
+            string commandPattern = @".*\\(.*).java";
+            Regex paramReg = new Regex(paramsPattern, RegexOptions.IgnoreCase);
+            Regex commandReg = new Regex(commandPattern, RegexOptions.IgnoreCase);
+            retval = LoadFile(folderName + "\\src\\main\\deploy\\amode238.txt");
+
+            ProgramPnl.ClearCommandSet();
+            foreach (var file in
+                Directory.EnumerateFiles(folderName + commandDirectory, "*.java"))
+            {
+                using (StreamReader sr = new StreamReader(file))
+                {
+                    String fileText = sr.ReadToEnd();
+                    Match m = paramReg.Match(fileText);
+                    if(m.Success)
+                    {
+                        string commandName = commandReg.Match(file).Groups[1].Value;
+                        string paramsText = m.Groups[1].Value.Replace("\"", "");
+                        string[] paramsArray = paramsText.Split(',');
+                        CommandTemplate template = new CommandTemplate(commandName, paramsArray);
+                        ProgramPnl.UpdateCommandSet(template);
+                    }
+                }
+            }
+                return retval;
         }
 
         /// <summary>

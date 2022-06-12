@@ -1,6 +1,7 @@
 ﻿using Autonomous_Downloader.Autonomous_x;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -579,7 +580,7 @@ namespace Autonomous_Downloader
         /// <summary>
         /// The current set of commands being shown in the commands panel.
         /// </summary>
-        private CommandTemplate[] CommandSet = null;
+        private List<CommandTemplate> CommandSet = null;
 
         private bool LoadCommandSet(String filepath)
         {
@@ -606,19 +607,6 @@ namespace Autonomous_Downloader
         {
             if (!LoadCommandSet("commands.json"))
             {
-                CommandSet = new CommandTemplate[]
-                {
-                    new CommandTemplate("CollectorIn"),
-                    new CommandTemplate("CollectorOut"),
-
-                    new CommandTemplate("DriveForward", new String[] { "Target", "Speed" } ),
-                    new CommandTemplate("DriveBackwards", new String[] { "Target", "Speed" }),
-                    new CommandTemplate("TurnLeft", new String[] { "Target", "Speed", "Other" }),
-                    new CommandTemplate("TurnRight", new String[] { "Target", "Speed", "Other" }),
-
-                    new CommandTemplate("Finished")
-                };
-                SaveCommandSet("commands.json");
             }
 
             CommandTemplate.CommandSet = CommandSet;

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Autonomous_Downloader.Autonomous_x
          * until the program is loaded by the JSON loader. We may be able to move
          * this to a different construct that allows it to remain global.
          */
-        public static CommandTemplate[] CommandSet = null;
+        public static List<CommandTemplate> CommandSet = null;
 
         public static CommandTemplate FindCommandByName(String name)
         {
@@ -61,7 +62,7 @@ namespace Autonomous_Downloader.Autonomous_x
             ParameterNames = parameterNames;
         }
 
-        public static CommandTemplate[] LoadCommandSet(String filepath)
+        public static List<CommandTemplate> LoadCommandSet(String filepath)
         {
             CommandTemplate[] retval = null;
 
@@ -72,11 +73,10 @@ namespace Autonomous_Downloader.Autonomous_x
                 json = sr.ReadToEnd();
                 retval = JsonConvert.DeserializeObject<CommandTemplate[]>(json);
             }
-
-            return retval;
+            return retval.ToList();
         }
 
-        public static void SaveCommandSet(CommandTemplate[] commandSet, String filepath)
+        public static void SaveCommandSet(List<CommandTemplate> commandSet, String filepath)
         {
             try
             {

@@ -1,5 +1,6 @@
 ﻿using Autonomous_Downloader.Autonomous_x;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -21,7 +22,7 @@ namespace Autonomous_Downloader
         /// <summary>
         /// The current set of commands being shown in the commands panel.
         /// </summary>
-        private CommandTemplate[] CommandSet = null;
+        public List<CommandTemplate> CommandSet = null;
 
         /// <summary>
         /// The route name to present to the user.
@@ -64,6 +65,19 @@ namespace Autonomous_Downloader
             set
             {
                 ProgramParametersLB.ItemsSource = value;
+            }
+        }
+
+        public ObservableCollection<CommandTemplate> CommandTemplates
+        {
+            get
+            {
+                return (ObservableCollection<CommandTemplate>)CommandTemplateLB.ItemsSource;
+            }
+
+            set
+            {
+                CommandTemplateLB.ItemsSource = value;
             }
         }
 
@@ -150,24 +164,27 @@ namespace Autonomous_Downloader
         {
             if (!LoadCommandSet("commands.json"))
             {
-                CommandSet = new CommandTemplate[]
-                {
-                    new CommandTemplate("CollectorIn"),
-                    new CommandTemplate("CollectorOut"),
-
-                    new CommandTemplate("DriveForward", new String[] { "Target", "Speed" } ),
-                    new CommandTemplate("DriveBackwards", new String[] { "Target", "Speed" }),
-                    new CommandTemplate("TurnLeft", new String[] { "Target", "Speed", "Other" }),
-                    new CommandTemplate("TurnRight", new String[] { "Target", "Speed", "Other" }),
-
-                    new CommandTemplate("Finished")
-                };
-                SaveCommandSet("commands.json");
+                
             }
 
             CommandTemplate.CommandSet = CommandSet;
             CommandTemplateLB.ItemsSource = CommandSet;
             CommandTemplateLB.SelectedIndex = 0;
+        }
+
+        public void ClearCommandSet()
+        {
+            CommandSet.Clear();
+            CommandTemplate.CommandSet = CommandSet;
+            RefreshCommandTemplateList();
+        }
+
+        public void UpdateCommandSet(CommandTemplate newTemplate)
+        {
+            CommandSet.Add(newTemplate);
+            CommandTemplate.CommandSet = CommandSet;
+            CommandTemplateLB.SelectedIndex = 0;
+            RefreshCommandTemplateList();
         }
 
         /// <summary>
@@ -450,6 +467,16 @@ namespace Autonomous_Downloader
         {
             ProgramCommandsLB.Items.Refresh();
         }
+
+        /// <summary>
+        /// Reload the commands list to ensure that it is up to date.
+        /// </summary>
+        /// 
+        private void RefreshCommandTemplateList()
+        {
+            CommandTemplateLB.Items.Refresh();
+        }
+
         /// <summary>
         /// Sets the carat to the end of the textbox on focus
         /// Why I have to do this manually is beyond me...
