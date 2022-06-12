@@ -22,7 +22,7 @@
             <Grid Margin="10,10,10,5">
                 <Grid VerticalAlignment="Top">
                     <Label Content="Route" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFEEEE00" FontFamily="Verdana"/>
-                    <Label x:Name="ProgramNameLbl" Content="None" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,0,0,0" Width="91" Foreground="#FFEEEE00" FontFamily="Verdana"/>
+                    <Label x:Name="ProgramNameLbl" Content="None" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="59,0,0,0" Width="161" Foreground="#FFEEEE00" FontFamily="Verdana" d:LayoutOverrides="TopPosition, BottomPosition"/>
                 </Grid>
                 <Grid Height="30" Margin="0,31,0,103" VerticalAlignment="Top">
                     <Button x:Name="DownBtn" Margin="0,0,39,0" HorizontalAlignment="Right" Width="24" Height="24" Click="DownBtn_Click">
