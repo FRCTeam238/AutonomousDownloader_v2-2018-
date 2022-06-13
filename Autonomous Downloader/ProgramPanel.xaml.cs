@@ -243,7 +243,8 @@ namespace Autonomous_Downloader
                         ProgramCommandsLB.SelectedIndex = ProgramCommandsLB.Items.Count - 1;
                     }   
                 }
-                TaskDefinitionWindow.Dirty = true;
+                TaskDefinitionWindow window = (TaskDefinitionWindow) Application.Current.MainWindow;
+                window.Dirty = true;
             }
         }
 
@@ -268,7 +269,8 @@ namespace Autonomous_Downloader
                 {
                     ProgramCommandsLB.SelectedIndex = ProgramCommandsLB.Items.Count - 1;
                 }
-                TaskDefinitionWindow.Dirty = true;
+                TaskDefinitionWindow window = (TaskDefinitionWindow)Application.Current.MainWindow;
+                window.Dirty = true;
             }
         }
 
@@ -288,7 +290,8 @@ namespace Autonomous_Downloader
                 Commands.RemoveAt(index);
                 Commands.Insert(index + 1, item);
                 ProgramCommandsLB.SelectedIndex = index + 1;
-                TaskDefinitionWindow.Dirty = true;
+                TaskDefinitionWindow window = (TaskDefinitionWindow)Application.Current.MainWindow;
+                window.Dirty = true;
             }
         }
 
@@ -310,7 +313,8 @@ namespace Autonomous_Downloader
                 Commands.RemoveAt(index);
                 Commands.Insert(index - 1, item);
                 ProgramCommandsLB.SelectedIndex = index - 1;
-                TaskDefinitionWindow.Dirty = true;
+                TaskDefinitionWindow window = (TaskDefinitionWindow)Application.Current.MainWindow;
+                window.Dirty = true;
             }
         }
 
@@ -411,7 +415,8 @@ namespace Autonomous_Downloader
                         ProgramCommandsLB.SelectedIndex = ProgramCommandsLB.Items.Count - 1;
                     }   
                 }
-                TaskDefinitionWindow.Dirty = true;
+                TaskDefinitionWindow window = (TaskDefinitionWindow)Application.Current.MainWindow;
+                window.Dirty = true;
             }
         }
 

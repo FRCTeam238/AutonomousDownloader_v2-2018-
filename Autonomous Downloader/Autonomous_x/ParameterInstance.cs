@@ -22,7 +22,8 @@ namespace Autonomous_Downloader.Autonomous_x
             {
                 SetValue(ValueProperty, value);
                 this.value = value;
-                TaskDefinitionWindow.Dirty = true;
+                TaskDefinitionWindow window = (TaskDefinitionWindow)Application.Current.MainWindow;
+                window.Dirty = true;
             }
         }
 

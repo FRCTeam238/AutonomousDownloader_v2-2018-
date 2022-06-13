@@ -104,9 +104,21 @@ namespace Autonomous_Downloader
             }
         }
 
-		public static bool Dirty { 
-        get => dirty; 
-        set => dirty = value; 
+		public bool Dirty
+        {
+            get => dirty;
+            set
+            {
+                dirty = value;
+                if (dirty == true)
+                {
+                    SaveButton.Background = Brushes.Yellow;
+                }
+                else
+                {
+                    SaveButton.Background = Brushes.LightGray;
+                }
+            }
         }
 
 		/// <summary>
