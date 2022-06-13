@@ -236,8 +236,16 @@ namespace Autonomous_Downloader
                     {
                         string commandName = commandReg.Match(file).Groups[1].Value;
                         string paramsText = m.Groups[1].Value.Replace("\"", "").Trim();
-                        string[] paramsArray = paramsText.Split(',');
-                        CommandTemplate template = new CommandTemplate(commandName, paramsArray);
+                        CommandTemplate template;
+                        if (paramsText.Length > 0)
+                        {
+                            string[] paramsArray = paramsText.Split(',');
+                            template = new CommandTemplate(commandName, paramsArray);
+                        }
+                        else
+                        {
+                            template = new CommandTemplate(commandName);
+                        }   
                         ProgramPnl.UpdateCommandSet(template);
                     }
                 }
