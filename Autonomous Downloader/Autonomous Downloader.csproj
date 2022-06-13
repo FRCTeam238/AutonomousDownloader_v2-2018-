@@ -124,7 +124,7 @@
     <Compile Include="TaskDefinitionWindow.xaml.cs">
       <DependentUpon>TaskDefinitionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Autonomous_x\AutonomouRoute.cs" />
+    <Compile Include="Autonomous_x\AutonomousRoute.cs" />
     <Compile Include="Autonomous_x\Command.cs" />
     <Compile Include="Autonomous_x\CommandTemplate.cs" />
     <Compile Include="Autonomous_x\ParameterInstance.cs" />
