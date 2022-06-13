@@ -493,5 +493,13 @@ namespace Autonomous_Downloader
             TextBox tb = (TextBox)sender;
             tb.CaretIndex = tb.Text.Length;
         }
+
+        private void TrajectoryEntry_IndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            TrajectoryInstance instance = (TrajectoryInstance)comboBox.DataContext;
+            instance.Value = (string)comboBox.SelectedItem;
+            RefreshCommandList();
+        }
     }
 }

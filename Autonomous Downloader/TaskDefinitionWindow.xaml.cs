@@ -37,6 +37,7 @@ namespace Autonomous_Downloader
         public const String ProgramVersion = "2020 Beta";
 
         public const String commandDirectory = "\\src\\main\\java\\frc\\robot\\commands";
+        public const String trajectoryDirectory = "\\src\\main\\deploy\\pathplanner\\generatedJSON";
 
         public static bool dirty = false;
 
@@ -218,9 +219,10 @@ namespace Autonomous_Downloader
             bool retval = false;
             string paramsPattern = @"@AutonomousModeAnnotation\(parameterNames = {(.*)}\)";
             string commandPattern = @".*\\(.*).java";
+            string trajectoryPattern = @".*\\(.*).wpilib";
             Regex paramReg = new Regex(paramsPattern, RegexOptions.IgnoreCase);
             Regex commandReg = new Regex(commandPattern, RegexOptions.IgnoreCase);
-            retval = LoadFile(folderName + "\\src\\main\\deploy\\amode238.txt");
+            Regex trajectoryReg = new Regex(trajectoryPattern, RegexOptions.IgnoreCase);
 
             ProgramPnl.ClearCommandSet();
             foreach (var file in
@@ -233,14 +235,25 @@ namespace Autonomous_Downloader
                     if(m.Success)
                     {
                         string commandName = commandReg.Match(file).Groups[1].Value;
-                        string paramsText = m.Groups[1].Value.Replace("\"", "");
+                        string paramsText = m.Groups[1].Value.Replace("\"", "").Trim();
                         string[] paramsArray = paramsText.Split(',');
                         CommandTemplate template = new CommandTemplate(commandName, paramsArray);
                         ProgramPnl.UpdateCommandSet(template);
                     }
                 }
             }
-                return retval;
+            List<string> trajectories = new List<string>();
+            foreach (var file in
+                Directory.EnumerateFiles(folderName + trajectoryDirectory, "*.wpilib.json"))
+            {
+                string trajectoryName = trajectoryReg.Match(file).Groups[1].Value;
+                trajectories.Add(trajectoryName);
+            }
+            CommandTemplate.Trajectories = trajectories;
+            
+            retval = LoadFile(folderName + "\\src\\main\\deploy\\amode238.txt");
+
+            return retval;
         }
 
         /// <summary>

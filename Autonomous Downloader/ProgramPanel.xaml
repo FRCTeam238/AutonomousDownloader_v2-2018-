@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Autonomous_Downloader.Autonomous_x"
              mc:Ignorable="d" 
              d:DesignHeight="363" Width="500">
     <Grid>
@@ -58,15 +59,23 @@
                         <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle" />
                     </Style>
                 </ListBox.ItemContainerStyle>
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
+                <ListBox.Resources>
+                    <DataTemplate DataType="{x:Type local:TrajectoryInstance}">
                         <StackPanel>
-                            <TextBlock x:Name="ParameterNameTB" Text="{Binding Name}"  />
+                            <TextBlock x:Name="ParameterNameTB" Text="{Binding Name}" />
+                            <TextBlock x:Name="ParameterTB" Visibility="Collapsed" Text="{Binding Value}"  Tag="{Binding ElementName=ParameterEntry}" Background="Green" />
+                            <ComboBox Name="ParameterEntry" Visibility="Visible" Text="{Binding Value}" Tag="{Binding ElementName=ParameterTB}"  
+                                      ItemsSource="{Binding TrajectoryNames}" SelectionChanged="TrajectoryEntry_IndexChanged"/>
+                        </StackPanel>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type local:ParameterInstance}">
+                        <StackPanel>
+                            <TextBlock x:Name="ParameterNameTB" Text="{Binding Name}" />
                             <TextBlock x:Name="ParameterTB" Visibility="Collapsed" Text="{Binding Value}"  Tag="{Binding ElementName=ParameterEntry}" Background="Green" />
                             <TextBox Name="ParameterEntry" Visibility="Visible" Text="{Binding Value}" Tag="{Binding ElementName=ParameterTB}" PreviewLostKeyboardFocus="ParameterEntry_PreviewLostKeyboardFocus" KeyDown="ParameterEntry_KeyDown" GotFocus="ParameterEntry_GotFocus" />
                         </StackPanel>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
+                </ListBox.Resources>
             </ListBox>
         </Grid>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="#FF36372B"/>

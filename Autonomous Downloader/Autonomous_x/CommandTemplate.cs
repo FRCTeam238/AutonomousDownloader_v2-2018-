@@ -18,6 +18,8 @@ namespace Autonomous_Downloader.Autonomous_x
          */
         public static List<CommandTemplate> CommandSet = null;
 
+        public static List<string> Trajectories = null;
+
         public static CommandTemplate FindCommandByName(String name)
         {
             CommandTemplate retval = null;
@@ -101,7 +103,15 @@ namespace Autonomous_Downloader.Autonomous_x
 
         public ParameterInstance CreateParameterInstance(int index)
         {
-            ParameterInstance retval = new ParameterInstance(this, index);
+            ParameterInstance retval;
+            if (GetParameterName(index) == "[TrajectoryName]")
+            {
+                retval = new TrajectoryInstance(this, index, Trajectories);
+            }
+            else
+            {
+                retval = new ParameterInstance(this, index);
+            }
             return retval;
         }
 
