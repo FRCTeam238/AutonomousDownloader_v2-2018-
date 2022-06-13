@@ -450,10 +450,17 @@ namespace Autonomous_Downloader
 
         private void TrajectoryEntry_IndexChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            TrajectoryInstance instance = (TrajectoryInstance)comboBox.DataContext;
-            instance.Value = (string)comboBox.SelectedItem;
-            RefreshCommandList();
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox != null)
+            {
+                TrajectoryInstance instance = comboBox.DataContext as TrajectoryInstance;
+                if (instance != null)
+                {
+                    instance.Value = (string)comboBox.SelectedItem;
+                    RefreshCommandList();
+                }
+            }
+        }
         }
     }
 }
