@@ -38,14 +38,15 @@ namespace Autonomous_Downloader
 
         public const String commandDirectory = "\\src\\main\\java\\frc\\robot\\commands";
         public const String trajectoryDirectory = "\\src\\main\\deploy\\pathplanner\\generatedJSON";
+        public const String aModeFilePath = "\\src\\main\\deploy\\amode238.txt";
 
 		private static bool dirty = false;
 
-        /// <summary>
-        /// The main list of routes.
-        /// </summary>
-        /// 
-        private RouteGroup mProgramModes = null;
+		/// <summary>
+		/// The main list of routes.
+		/// </summary>
+		/// 
+		private RouteGroup mProgramModes = null;
 
         /// <summary>
         /// The name of the last file loaded or saved.
@@ -66,6 +67,8 @@ namespace Autonomous_Downloader
             set
             {
                 mSaveFilename = value;
+                Properties.Settings.Default.Project = value;
+                Properties.Settings.Default.Save();
                 SetWindowTitle(mSaveFilename);
             }
         }
@@ -125,10 +128,18 @@ namespace Autonomous_Downloader
         /// 
         private void InitializeProgram()
         {
-            RouteGroup programModes = new RouteGroup();
-            programModes.AutonomousModes.Add(new AutonomousRoute("new"));
-            SetWindowTitle("");
-            AddNewRoute(programModes);
+            bool loaded = false;
+            if (Properties.Settings.Default.Project.Length > 0)
+            {
+                loaded = LoadFolder(Properties.Settings.Default.Project);
+            }
+            if (!loaded)
+            {
+                RouteGroup programModes = new RouteGroup();
+                programModes.AutonomousModes.Add(new AutonomousRoute("new"));
+                SetWindowTitle("");
+                AddNewRoute(programModes);
+            }
         }
 
         /// <summary>
@@ -221,51 +232,63 @@ namespace Autonomous_Downloader
 
         private bool LoadFolder(String folderName)
         {
-            bool retval = false;
-            string paramsPattern = @"@AutonomousModeAnnotation\(parameterNames = {(.*)}\)";
-            string commandPattern = @".*\\(.*).java";
-            string trajectoryPattern = @".*\\(.*).wpilib";
-            Regex paramReg = new Regex(paramsPattern, RegexOptions.IgnoreCase);
-            Regex commandReg = new Regex(commandPattern, RegexOptions.IgnoreCase);
-            Regex trajectoryReg = new Regex(trajectoryPattern, RegexOptions.IgnoreCase);
+            bool retval = true;
+            try
+            { 
+                string paramsPattern = @"@AutonomousModeAnnotation\(parameterNames = {(.*)}\)";
+                string commandPattern = @".*\\(.*).java";
+                string trajectoryPattern = @".*\\(.*).wpilib";
+                Regex paramReg = new Regex(paramsPattern, RegexOptions.IgnoreCase);
+                Regex commandReg = new Regex(commandPattern, RegexOptions.IgnoreCase);
+                Regex trajectoryReg = new Regex(trajectoryPattern, RegexOptions.IgnoreCase);
 
-            ProgramPnl.ClearCommandSet();
-            foreach (var file in
-                Directory.EnumerateFiles(folderName + commandDirectory, "*.java"))
-            {
-                using (StreamReader sr = new StreamReader(file))
+                if(!File.Exists(folderName + aModeFilePath))
                 {
-                    String fileText = sr.ReadToEnd();
-                    Match m = paramReg.Match(fileText);
-                    if(m.Success)
+                    throw new Exception("No AMode file found");
+				}
+
+                ProgramPnl.ClearCommandSet();
+                foreach (var file in
+                    Directory.EnumerateFiles(folderName + commandDirectory, "*.java"))
+                {
+                    using (StreamReader sr = new StreamReader(file))
                     {
-                        string commandName = commandReg.Match(file).Groups[1].Value;
-                        string paramsText = m.Groups[1].Value.Replace("\"", "").Trim();
-                        CommandTemplate template;
-                        if (paramsText.Length > 0)
+                        String fileText = sr.ReadToEnd();
+                        Match m = paramReg.Match(fileText);
+                        if (m.Success)
                         {
-                            string[] paramsArray = paramsText.Split(',');
-                            template = new CommandTemplate(commandName, paramsArray);
+                            string commandName = commandReg.Match(file).Groups[1].Value;
+                            string paramsText = m.Groups[1].Value.Replace("\"", "").Trim();
+                            CommandTemplate template;
+                            if (paramsText.Length > 0)
+                            {
+                                string[] paramsArray = paramsText.Split(',');
+                                template = new CommandTemplate(commandName, paramsArray);
+                            }
+                            else
+                            {
+                                template = new CommandTemplate(commandName);
+                            }
+                            ProgramPnl.UpdateCommandSet(template);
                         }
-                        else
-                        {
-                            template = new CommandTemplate(commandName);
-                        }   
-                        ProgramPnl.UpdateCommandSet(template);
                     }
                 }
-            }
-            List<string> trajectories = new List<string>();
-            foreach (var file in
-                Directory.EnumerateFiles(folderName + trajectoryDirectory, "*.wpilib.json"))
-            {
-                string trajectoryName = trajectoryReg.Match(file).Groups[1].Value;
-                trajectories.Add(trajectoryName);
-            }
-            CommandTemplate.Trajectories = trajectories;
-            
-            retval = LoadFile(folderName + "\\src\\main\\deploy\\amode238.txt");
+                List<string> trajectories = new List<string>();
+                foreach (var file in
+                    Directory.EnumerateFiles(folderName + trajectoryDirectory, "*.wpilib.json"))
+                {
+                    string trajectoryName = trajectoryReg.Match(file).Groups[1].Value;
+                    trajectories.Add(trajectoryName);
+                }
+                CommandTemplate.Trajectories = trajectories;
 
+                retval = LoadFile(folderName);
+            }
+            catch (Exception e) {
+                String msg = String.Format("Unable to load Project\n{0}", e.Message);
+                MessageBox.Show(msg, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                retval = false;
+			}
             Dirty = false;
             return retval;
         }
@@ -277,24 +300,23 @@ namespace Autonomous_Downloader
         /// This function will load a file into memory replacing 
         /// whatever is already loaded.
         /// 
-        /// <param name="filename">The name and path of the file to load</param>
+        /// <param name="filePath">The path of the project folder to load</param>
         /// <returns>Returns true if the file was successfully loaded,
         /// otherwise false is returned.</returns>
         /// 
-        private bool LoadFile(String filename)
+        private bool LoadFile(String filePath)
         {
             bool retval = false;
             try
             {
                 Autonomous_x.RouteGroup programList = null;
-                programList = Autonomous_x.RouteGroup.Load(filename);
+                programList = Autonomous_x.RouteGroup.Load(filePath + aModeFilePath);
 
                 if (programList != null)
                 {
-                    SaveFilename = filename;
+                    SaveFilename = filePath;
                     AddNewRoute(programList);
                 }
-
                 retval = true;
             }
             catch (Exception ex)
