@@ -202,7 +202,9 @@ namespace Autonomous_Downloader
             if (selectedCommand != null)
             {
                 //C ProgramParametersLB.ItemsSource = selectedCommand.Parameters;
-                ProgramParametersLB.ItemsSource = selectedCommand.ParameterInstances;
+                ObservableCollection<ParameterInstance> selectedParams = new ObservableCollection<ParameterInstance>(selectedCommand.ParameterInstances);
+                selectedParams.Add(selectedCommand.ParallelParam);
+                ProgramParametersLB.ItemsSource = selectedParams;
             }
             else
             {
@@ -461,6 +463,18 @@ namespace Autonomous_Downloader
                 }
             }
         }
+
+        private void ParallelEntry_IndexChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox != null)
+            {
+                ParallelInstance instance = comboBox.DataContext as ParallelInstance;
+                if (instance != null) { 
+                    instance.Value = (string)comboBox.SelectedItem;
+                    RefreshCommandList();
+                }
+            }
         }
     }
 }

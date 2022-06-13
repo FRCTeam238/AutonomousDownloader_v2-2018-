@@ -67,7 +67,14 @@
                             ItemsSource="{Binding TrajectoryNames}" SelectionChanged="TrajectoryEntry_IndexChanged"/>
                         </StackPanel>
                     </DataTemplate>
-                    <DataTemplate DataType="{x:Type local:ParameterInstance}">
+					<DataTemplate DataType="{x:Type local:ParallelInstance}">
+						<StackPanel>
+							<TextBlock x:Name="ParameterNameTB" Text="{Binding Name}" />
+							<ComboBox Name="ParameterEntry" Visibility="Visible" Text="{Binding Value}"
+                            ItemsSource="{Binding ParallelTypes}" SelectionChanged="ParallelEntry_IndexChanged"/>
+						</StackPanel>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type local:ParameterInstance}">
                         <StackPanel>
                             <TextBlock x:Name="ParameterNameTB" Text="{Binding Name}" />
                             <TextBox Name="ParameterEntry" Visibility="Visible" Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}" TextChanged="ParameterEntry_TextChanged" KeyDown="ParameterEntry_KeyDown" GotFocus="ParameterEntry_GotFocus" />

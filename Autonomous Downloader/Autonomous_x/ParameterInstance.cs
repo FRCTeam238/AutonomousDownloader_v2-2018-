@@ -30,7 +30,14 @@ namespace Autonomous_Downloader.Autonomous_x
         {
             get
             {
-                return mTemplate.ParameterNames[mParameterIndex];
+                if (mParameterIndex == 99)
+                {
+                    return "ParallelType";
+                }
+                else
+                {
+                    return mTemplate.ParameterNames[mParameterIndex];
+                }
             }
         }
 

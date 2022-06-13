@@ -27,15 +27,35 @@ namespace Autonomous_Downloader.Autonomous_x
             {
                 String result = Name;
 
+                switch (ParallelType)
+                {
+                    case "None":
+                        break;
+                    case "Deadline_Leader":
+                        result = result.Insert(0, "-");
+                        break;
+                    case "Deadline_Follower":
+                        result = result.Insert(0, "--");
+                        break;
+                    case "Parallel":
+                        result = result.Insert(0, "*");
+                        break;
+                    case "Race":
+                        result = result.Insert(0, "+");
+                        break;
+                }
+
                 for (int parameterIndex = 0; parameterIndex < Parameters.Count; parameterIndex++)
                 {
-                    if (String.IsNullOrEmpty(Parameters[parameterIndex]))
                     {
-                        result += String.Format(" {0}", mTemplate.GetParameterName(parameterIndex));
-                    }
-                    else
-                    {
-                        result += String.Format(" '{0}'", Parameters[parameterIndex]);
+                        if (String.IsNullOrEmpty(Parameters[parameterIndex]))
+                        {
+                            result += String.Format(" {0}", mTemplate.GetParameterName(parameterIndex));
+                        }
+                        else
+                        {
+                            result += String.Format(" '{0}'", Parameters[parameterIndex]);
+                        }
                     }
                 }
 
@@ -69,18 +89,26 @@ namespace Autonomous_Downloader.Autonomous_x
         [Newtonsoft.Json.JsonIgnore]
         public ObservableCollection<ParameterInstance> ParameterInstances { get; set; }
 
-        [Newtonsoft.Json.JsonConstructor]
-        public Command(String name, String[] parameters)
+        [Newtonsoft.Json.JsonIgnore]
+        public ParallelInstance ParallelParam { get; set; }
+		
+        public string ParallelType { get { return ParallelParam.Value; } set => ParallelParam.Value = value; }
+
+		[Newtonsoft.Json.JsonConstructor]
+
+		public Command(String name, String[] parameters)
         {
             CommandTemplate baseTemplate = CommandTemplate.FindCommandByName(name);
             mTemplate = baseTemplate;
             LoadCommandFromTemplate(parameters, baseTemplate);
+            ParallelType = "None";
         }
 
         public Command(CommandTemplate baseTemplate)
         {
             mTemplate = baseTemplate;
             LoadCommandFromTemplate(null, baseTemplate);
+            ParallelType = "None";
         }
 
         private void LoadCommandFromTemplate(String[] parameters, CommandTemplate baseTemplate)
@@ -98,6 +126,7 @@ namespace Autonomous_Downloader.Autonomous_x
 
                 ParameterInstances.Add(inst);
             }
+            ParallelParam = new ParallelInstance(baseTemplate, 99);
         }
     }
 }

@@ -108,7 +108,10 @@ namespace Autonomous_Downloader.Autonomous_x
             {
                 retval = new TrajectoryInstance(this, index, Trajectories);
             }
-            else
+            else if (GetParameterName(index) == "[ParallelType]")
+            {
+                retval = new ParallelInstance(this, index);
+			} else
             {
                 retval = new ParameterInstance(this, index);
             }

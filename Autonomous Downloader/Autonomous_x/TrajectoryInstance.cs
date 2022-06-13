@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Autonomous_Downloader.Autonomous_x
 {
-    internal class TrajectoryInstance : ParameterInstance
+    public class TrajectoryInstance : ParameterInstance
     {
         private List<string> trajectoryNames = new List<String>();
 
