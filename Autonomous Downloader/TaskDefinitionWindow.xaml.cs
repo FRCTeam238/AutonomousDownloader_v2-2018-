@@ -129,16 +129,31 @@ namespace Autonomous_Downloader
             InitializeComponent();
 
             InitializeProgram();
+
+			Closing += TaskDefinitionWindow_Closing;
         }
 
-        /// <summary>
-        /// Initialize the program.
-        /// </summary>
-        /// 
-        /// A new empty route is created.
-        /// The window title is set.
-        /// 
-        private void InitializeProgram()
+		private void TaskDefinitionWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+            if (Dirty)
+            {
+                String msg = "Are you sure you want to quit without saving?";
+                MessageBoxResult result = MessageBox.Show(msg, "Quit?", MessageBoxButton.YesNo);
+                if (result.Equals(MessageBoxResult.No))
+                { 
+                    e.Cancel = true;
+                }
+            }
+        }
+
+		/// <summary>
+		/// Initialize the program.
+		/// </summary>
+		/// 
+		/// A new empty route is created.
+		/// The window title is set.
+		/// 
+		private void InitializeProgram()
         {
             bool loaded = false;
             if (Properties.Settings.Default.Project.Length > 0)
@@ -204,42 +219,10 @@ namespace Autonomous_Downloader
             RouteGroup programList = mProgramModes;
             if (programList != null)
             {
-                if (String.IsNullOrEmpty(SaveFilename))
-                {
-                    SaveAsButton_Click(sender, e);
-                }
-                else
-                {
-                    SaveFile(SaveFilename);
-                    MessageBox.Show($"Saved to {SaveFilename}");
-                }
-            }
-            Dirty = false;
-        }
-
-        /// <summary>
-        /// Handle user request to save a file with prompt for filename
-        /// </summary>
-        /// 
-        /// This function will save teh data in memory to a file.
-        /// 
-        /// This function always prompts for a filename.
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SaveAsButton_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "Autonomous JSON File(*.txt)|*.txt|Autonomous JSON File (*.json)|*.json|All(*.*)|*.*";
-            dlg.DefaultExt = ".txt";
-            dlg.Title = "Save an Autonomous File";
-            dlg.ShowDialog();
-
-            if (!String.IsNullOrEmpty(dlg.FileName))
-            {
-                SaveFile(dlg.FileName);
+                SaveFile(SaveFilename);
                 MessageBox.Show($"Saved to {SaveFilename}");
             }
+            Dirty = false;
         }
 
         private bool LoadFolder(String folderName)
@@ -381,31 +364,6 @@ namespace Autonomous_Downloader
                 programList.Save(filename);
                 SaveFilename = filename;
             }
-        }
-
-        /// <summary>
-        /// User request to exit the program.
-        /// </summary>
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// 
-        private void QuitButton_Click(object sender, RoutedEventArgs e)
-        {
-            if(Dirty)
-            {
-                String msg = "Are you sure you want to quit without saving?";
-                MessageBoxResult result = MessageBox.Show(msg, "Quit?", MessageBoxButton.YesNo);
-                if (result.Equals(MessageBoxResult.Yes))
-                {
-                    Close();
-                } else
-                {
-                    return;
-                }
-            }
-
-            Close();
         }
 
         /// <summary>
