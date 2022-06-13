@@ -316,7 +316,7 @@ namespace Autonomous_Downloader
         /// A keyboard key has been issued in a parameter input field.
         /// </summary>
         /// 
-        /// If the key is returned the value in the field is stored back
+        /// If the key is return the value in the field is stored back
         /// to the parameters data store, the input is disabled, and
         /// the label is shown with the new value.
         /// 
@@ -330,28 +330,12 @@ namespace Autonomous_Downloader
                 TextBox box = (TextBox)sender;
                 e.Handled = true;
                 
-                int selectedIndex = ProgramParametersLB.SelectedIndex;
+                ParameterInstance instance = box.DataContext as ParameterInstance;
+                instance.Value = box.Text;
 
-                try
-                {
-                    Parameters[selectedIndex].Value = box.Text;
-                }
-                catch (Exception /*ex*/)
-                {
-                    /* //TODO do something with the error */
-                }
                 RefreshCommandList();
                 var moveDown = new TraversalRequest(FocusNavigationDirection.Down);
-                //if it couldn't focus on the next element, we're at the end
-                //seems like setting "Cycle" on the tab mode would solve this, but I'm doing it wrong or something in the xaml
-                //hacky way of getting the first list box item, finding the parameter textbox and setting focus
-                //using wpf dark magic
-                if (!box.MoveFocus(moveDown)) {
-                    ListBoxItem firstItem = ProgramParametersLB.ItemContainerGenerator.ContainerFromIndex(0) as ListBoxItem;
-                    //FindChildControlByName is an extension method found in Utiity.cs class
-                    TextBox firstParameterEntry = firstItem.FindChildControlByName<TextBox>("ParameterEntry");
-                    firstParameterEntry.Focus();
-                }
+                box.MoveFocus(moveDown);
             }
             
 
@@ -429,38 +413,8 @@ namespace Autonomous_Downloader
             }
         }
 
-        /// <summary>
-        /// Force the contents of the a parameter back into the program parameters storage.
-        /// </summary>
-        /// 
-        /// This function fires as the user is pressing a new key in a parameter entry field.
-        /// It will force the resulting value back into the storage record for the parameters.
-        /// 
-        /// //TODO consider another attempt to see if the text editor can be bound directly
-        ///   to the parameter in the backing store. That way WPF can take care of maintaining
-        ///   the value in the store.
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// 
-        private void ParameterEntry_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void ParameterEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            int selectedIndex = ProgramParametersLB.SelectedIndex;
-            if (selectedIndex >= 0)
-            {
-                TextBox box = (TextBox)sender;
-
-                try
-                {
-                    ParameterInstance pi = (ParameterInstance)Parameters[selectedIndex];
-                    Parameters[selectedIndex].Value = box.Text;
-                }
-                catch (Exception /*ex*/)
-                {
-                    /* //TODO do something with the error */
-                }
-                //RefreshCommandList();
-            }
             RefreshCommandList();
         }
 
