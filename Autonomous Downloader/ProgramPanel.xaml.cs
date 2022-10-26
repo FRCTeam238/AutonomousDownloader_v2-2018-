@@ -162,11 +162,7 @@ namespace Autonomous_Downloader
         /// 
         private void InitializeCommandsList()
         {
-            if (!LoadCommandSet("commands.json"))
-            {
-                
-            }
-
+            CommandSet = new List<CommandTemplate>();
             CommandTemplate.CommandSet = CommandSet;
             CommandTemplateLB.ItemsSource = CommandSet;
             CommandTemplateLB.SelectedIndex = 0;
@@ -174,7 +170,8 @@ namespace Autonomous_Downloader
 
         public void ClearCommandSet()
         {
-            CommandSet.Clear();
+            if(CommandSet != null)
+                CommandSet.Clear();
             CommandTemplate.CommandSet = CommandSet;
             RefreshCommandTemplateList();
         }
