@@ -219,7 +219,7 @@ namespace Autonomous_Downloader
             RouteGroup programList = mProgramModes;
             if (programList != null)
             {
-                SaveFile(SaveFilename);
+                SaveFile(SaveFilename + aModeFilePath);
                 MessageBox.Show($"Saved to {SaveFilename}");
             }
             Dirty = false;
