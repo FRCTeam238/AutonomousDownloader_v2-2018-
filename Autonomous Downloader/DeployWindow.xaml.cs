@@ -21,9 +21,9 @@ namespace Autonomous_Downloader
     /// <summary>
     /// Interaction logic for DownloadWindow.xaml
     /// </summary>
-    public partial class DownloadWindow : Window
+    public partial class DeployWindow : Window
     {
-        public DownloadWindow()
+        public DeployWindow()
         {
             InitializeComponent();
         }

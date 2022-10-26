@@ -34,7 +34,7 @@ namespace Autonomous_Downloader
         /// The displayed program version
         /// </summary>
         /// 
-        public const String ProgramVersion = "2020 Beta";
+        public const String ProgramVersion = "2022";
 
         public const String commandDirectory = "\\src\\main\\java\\frc\\robot\\commands";
         public const String trajectoryDirectory = "\\src\\main\\deploy\\pathplanner\\generatedJSON";
@@ -631,9 +631,9 @@ namespace Autonomous_Downloader
             }
         }
 
-        private void DownloadBtn_Click(object sender, RoutedEventArgs e)
+        private void DeployBtn_Click(object sender, RoutedEventArgs e)
         {
-            DownloadWindow dlg = new DownloadWindow();
+            DeployWindow dlg = new DeployWindow();
             dlg.Owner = this;
             dlg.Show();
         }

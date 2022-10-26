@@ -130,7 +130,7 @@
     <Compile Include="Autonomous_x\CommandTemplate.cs" />
     <Compile Include="Autonomous_x\ParameterInstance.cs" />
     <Compile Include="Autonomous_x\RouteGroup.cs" />
-    <Page Include="DownloadWindow.xaml">
+    <Page Include="DeployWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,8 +140,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DownloadWindow.xaml.cs">
-      <DependentUpon>DownloadWindow.xaml</DependentUpon>
+    <Compile Include="DeployWindow.xaml.cs">
+      <DependentUpon>DeployWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ftp.cs" />
     <Compile Include="ProgramPanel.xaml.cs">

@@ -1,11 +1,11 @@
-﻿<Window x:Class="Autonomous_Downloader.DownloadWindow"
+﻿<Window x:Class="Autonomous_Downloader.DeployWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Autonomous_Downloader"
         mc:Ignorable="d"
-        Title="DownloadWindow" Height="373.47" Width="535.714">
+        Title="DeployWindow" Height="373.47" Width="535.714">
     <Grid>
         <Label x:Name="label" Content="FTP Host" HorizontalAlignment="Left" Margin="64,9,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="HostTB" Height="23" Margin="124,13,10,0" TextWrapping="Wrap" Text="ftp://172.22.11.2/" VerticalAlignment="Top"/>
