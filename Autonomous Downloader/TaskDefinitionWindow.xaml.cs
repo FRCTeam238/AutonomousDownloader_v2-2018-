@@ -362,7 +362,6 @@ namespace Autonomous_Downloader
             if (programList != null)
             {
                 programList.Save(filename);
-                SaveFilename = filename;
             }
         }
 
