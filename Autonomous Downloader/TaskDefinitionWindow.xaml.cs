@@ -503,7 +503,6 @@ namespace Autonomous_Downloader
                 editBox.Visibility = System.Windows.Visibility.Visible;
                 editBox.Text = SelectedProgram.Name;
             }
-            Dirty = true;
         }
 
         /// <summary>
